@@ -11,7 +11,11 @@
         
         <?php
         include 'connection.php';
-        $ids = $_GET['id'];
+        if (!($_GET['id'])) {
+            header('location:create.php');
+        }
+        else{
+            $ids = $_GET['id'];
         $readquery = "SELECT * FROM `data_table` WHERE id=$ids";
         $result = mysqli_query($con, $readquery);
         $arr = mysqli_fetch_array($result);
@@ -37,7 +41,9 @@
                 header('location:read.php');
 
             }
-                    
+             
+        }
+               
         ?>
     </form>
     

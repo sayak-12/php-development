@@ -5,6 +5,11 @@
 	<title>Log in to your account</title>
 </head>
 <body>
+<?php 
+
+  
+
+?>
 	<div>
 	</div>
 	<div class="container">
@@ -13,7 +18,7 @@
 	
   <div class="form-group">
     <label for="Email1">Email address</label>
-    <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+    <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="<?php  ?>">
   </div>
   
   <div class="form-group">
@@ -23,6 +28,10 @@
   <button type="submit" class="btn btn-primary w-100" name="create">Log in</button>
 </form><br>
 <span >Don't have an account? <a href="signup.php" style="color: white; font-weight: bold;">Sign up here</a></span>
+<?php
+
+
+ ?>
 </div>
 </body>
 </html>

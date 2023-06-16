@@ -64,7 +64,8 @@
                 $iquery = mysqli_query($con, $qr2);
                 ?>
                 <script>
-                    alert("successfully inserted data");
+                    alert("successfully Signed up, please login");
+                    window.location.href = 'login.php?email=<?php echo $email ?>';
                 </script>
 
                 <?php
