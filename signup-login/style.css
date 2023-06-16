@@ -1,0 +1,13 @@
+.container{
+    margin-top: 8%;
+    width: 400px;
+    border: ridge 1.5px white;
+    padding: 20px;
+}
+h2, label, span{
+    color: rgba(255, 255, 255, 0.831);
+}
+body{
+    background: #6c159e;  
+
+}

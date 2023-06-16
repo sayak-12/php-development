@@ -3,11 +3,11 @@
 $user = "root";
 $password="";
 $server = "localhost";
-$db="mydata";
+$db="signupdb";
 
 $con = mysqli_connect($server, $user, $password, $db);
 if ($con) {
-    header('location:create.php');
+    
 }
 else{
     die("conection not successful");
