@@ -65,7 +65,7 @@
                 ?>
                 <script>
                     alert("successfully Signed up, please login");
-                    window.location.href = 'login.php?email=<?php echo $email ?>';
+                    window.location.href = 'login.php?inemail=<?php echo $email ?>';
                 </script>
 
                 <?php

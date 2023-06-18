@@ -1,37 +1,83 @@
+<?php
+include 'connect.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html>
+
 <head>
-    <?php include 'dependancies.php' ?>
-	<title>Log in to your account</title>
+  <?php include 'dependancies.php' ?>
+  <title>Log in to your account</title>
 </head>
+
 <body>
-<?php 
-
+  <?php
   
-
-?>
-	<div>
-	</div>
-	<div class="container">
-		<h2>Log in Now</h2>
-	<form action="" method="post">
-	
-  <div class="form-group">
-    <label for="Email1">Email address</label>
-    <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="<?php  ?>">
+  ?>
+  <div>
   </div>
+  <div class="container">
+    <h2>Log in Now</h2>
+    <form action="" method="post">
+
+      <div class="form-group">
+        <label for="Email1">Email address</label>
+        <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          name="email" value="">
+      </div>
+
+      <div class="form-group">
+        <label for="Password">Password</label>
+        <input required type="password" class="form-control" id="exampleInputPassword" name="password">
+      </div>
+      <div class="form-group">
+        
+        <input type="checkbox" class="d-inline" id="exampleInputPassword" name="rmb">
+        <label for="rmb">Remember me</label>
+      </div>
+      <button type="submit" class="btn btn-primary w-100" name="login">Log in</button>
+    </form><br>
+    <span>Don't have an account? <a href="signup.php" style="color: white; font-weight: bold;">Sign up here</a></span>
+    <?php
+    if (isset($_POST['login'])) {
+      $email = $_POST['email'];
+      $password = $_POST['password'];
+
+      $loginquery = "SELECT * FROM `userdtls` WHERE email='$email'";
+      $result = mysqli_query($con, $loginquery);
+      $emailcount = mysqli_num_rows($result);
+
+      if ($emailcount) {
+          $db = mysqli_fetch_array($result);
+          $dbpass = $db['password'];
+          $_SESSION['firstname'] = $db['Full_name'];
+          if (password_verify($password, $dbpass)) {
+            ?>
+            <script>
+              alert("Login Successful");
+            </script>
+            <?php
+            header('location:index.php');
+      }else{
+            ?>
+                <script>
+                  alert("Invalid Password");
+                </script>
+                <?php
+          }
+        }
+        else{
+           ?>
+                <script>
+                  alert("Invalid Email");
+                </script>
+                <?php
+        }
+      
+    }
   
-  <div class="form-group">
-    <label for="Password">Password</label>
-    <input required type="password" class="form-control" id="exampleInputPassword" name="password">
+    ?>
   </div>
-  <button type="submit" class="btn btn-primary w-100" name="create">Log in</button>
-</form><br>
-<span >Don't have an account? <a href="signup.php" style="color: white; font-weight: bold;">Sign up here</a></span>
-<?php
-
-
- ?>
-</div>
 </body>
+
 </html>
